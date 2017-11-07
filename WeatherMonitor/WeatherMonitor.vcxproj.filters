@@ -38,32 +38,68 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="weathermonitor.cpp">
+    <ClCompile Include="WeatherMonitor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_weathermonitor.cpp">
+    <ClCompile Include="GeneratedFiles\Debug\moc_WeatherMonitor.cpp">
       <Filter>Generated Files\Debug</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_weathermonitor.cpp">
+    <ClCompile Include="GeneratedFiles\Release\moc_WeatherMonitor.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\qrc_weathermonitor.cpp">
+    <ClCompile Include="GeneratedFiles\qrc_WeatherMonitor.cpp">
       <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SettingsCommon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_SettingsCommon.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_SettingsCommon.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="SettingsCities.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_SettingsCities.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_SettingsCities.cpp">
+      <Filter>Generated Files\Release</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="weathermonitor.h">
+    <CustomBuild Include="WeatherMonitor.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="weathermonitor.ui">
+    <CustomBuild Include="WeatherMonitor.ui">
       <Filter>Form Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="weathermonitor.qrc">
+    <CustomBuild Include="WeatherMonitor.qrc">
       <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="SettingsCommon.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="SettingsCommon.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="SettingsCities.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="SettingsCities.ui">
+      <Filter>Form Files</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GeneratedFiles\ui_weathermonitor.h">
+    <ClInclude Include="GeneratedFiles\ui_WeatherMonitor.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_SettingsCommon.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_SettingsCities.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,10 +1,10 @@
 #ifndef WEATHERMONITOR_H
 #define WEATHERMONITOR_H
 
-#include <QtWidgets/QDialog>
-#include "ui_weathermonitor.h"
+#include <QtWidgets/QMainWindow>
+#include "ui_WeatherMonitor.h"
 
-class WeatherMonitor : public QDialog
+class WeatherMonitor : public QMainWindow
 {
     Q_OBJECT
 
@@ -14,6 +14,10 @@ public:
 
 private:
     Ui::WeatherMonitorClass ui;
+
+private slots:
+    void on_openSettingsCommon();
+    void on_openSettingsCities();
 };
 
 #endif // WEATHERMONITOR_H

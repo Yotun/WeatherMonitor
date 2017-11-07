@@ -286,3 +286,7 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+/WeatherMonitor/GeneratedFiles/qrc_weathermonitor.cpp
+/WeatherMonitor/GeneratedFiles/ui_SettingsCities.h
+/WeatherMonitor/GeneratedFiles/ui_SettingsCommon.h
+/WeatherMonitor/GeneratedFiles/ui_weathermonitor.h

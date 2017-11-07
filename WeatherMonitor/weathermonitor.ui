@@ -1,10 +1,8 @@
-<UI version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>WeatherMonitorClass</class>
- <widget class="QDialog" name="WeatherMonitorClass" >
-  <property name="objectName" >
-   <string notr="true">WeatherMonitorClass</string>
-  </property>
-  <property name="geometry" >
+ <widget class="QMainWindow" name="WeatherMonitorClass">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
@@ -12,14 +10,107 @@
     <height>400</height>
    </rect>
   </property>
-  <property name="windowTitle" >
-   <string>WeatherMonitor</string>
+  <property name="windowTitle">
+   <string>Монитор погоды</string>
   </property>
+  <widget class="QWidget" name="centralWidget"/>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>600</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>Файл</string>
+    </property>
+    <addaction name="menuFileExit"/>
+   </widget>
+   <widget class="QMenu" name="menuSettings">
+    <property name="title">
+     <string>Настройки</string>
+    </property>
+    <addaction name="menuSettingCommon"/>
+    <addaction name="menuSettingsCities"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuSettings"/>
+  </widget>
+  <action name="menuFileExit">
+   <property name="text">
+    <string>Выход</string>
+   </property>
+  </action>
+  <action name="menuSettingCommon">
+   <property name="text">
+    <string>Общие</string>
+   </property>
+  </action>
+  <action name="menuSettingsCities">
+   <property name="text">
+    <string>Города</string>
+   </property>
+  </action>
  </widget>
- <layoutDefault spacing="6" margin="11" />
- <pixmapfunction></pixmapfunction>
+ <layoutdefault spacing="6" margin="11"/>
  <resources>
-   <include location="weathermonitor.qrc"/>
+  <include location="WeatherMonitor.qrc"/>
  </resources>
- <connections/>
-</UI>
+ <connections>
+  <connection>
+   <sender>menuFileExit</sender>
+   <signal>triggered()</signal>
+   <receiver>WeatherMonitorClass</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>299</x>
+     <y>199</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>menuSettingCommon</sender>
+   <signal>triggered()</signal>
+   <receiver>WeatherMonitorClass</receiver>
+   <slot>on_openSettingsCommon()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>299</x>
+     <y>199</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>menuSettingsCities</sender>
+   <signal>triggered()</signal>
+   <receiver>WeatherMonitorClass</receiver>
+   <slot>on_openSettingsCities()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>299</x>
+     <y>199</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>on_openSettingsCommon()</slot>
+  <slot>on_openSettingsCities()</slot>
+ </slots>
+</ui>
