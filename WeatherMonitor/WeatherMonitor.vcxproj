@@ -101,6 +101,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="WeatherMonitorApp.cpp" />
     <ClCompile Include="SettingsCities.cpp" />
     <ClCompile Include="SettingsCommon.cpp" />
     <ClCompile Include="WeatherMonitor.cpp" />
@@ -133,6 +134,7 @@
     <ClInclude Include="GeneratedFiles\ui_SettingsCities.h" />
     <ClInclude Include="GeneratedFiles\ui_SettingsCommon.h" />
     <ClInclude Include="GeneratedFiles\ui_WeatherMonitor.h" />
+    <ClInclude Include="WeatherMonitorApp.h" />
     <CustomBuild Include="SettingsCities.h">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing SettingsCities.h...</Message>

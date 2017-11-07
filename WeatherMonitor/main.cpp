@@ -1,10 +1,18 @@
 #include "WeatherMonitor.h"
-#include <QtWidgets/QApplication>
+#include "WeatherMonitorApp.h"
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
+    WeatherMonitorApp a(argc, argv);
+    int err = a.init();
+    if (err != 0)
+        return err;
+
     WeatherMonitor w;
     w.show();
-    return a.exec();
+
+    int ret = a.exec();
+
+    a.clean();
+    return ret;
 }

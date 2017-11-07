@@ -290,3 +290,4 @@ __pycache__/
 /WeatherMonitor/GeneratedFiles/ui_SettingsCities.h
 /WeatherMonitor/GeneratedFiles/ui_SettingsCommon.h
 /WeatherMonitor/GeneratedFiles/ui_weathermonitor.h
+/WeatherMonitor/WeatherMonitor.sqlite
