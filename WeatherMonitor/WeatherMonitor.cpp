@@ -13,14 +13,14 @@ WeatherMonitor::~WeatherMonitor()
 
 }
 
-void WeatherMonitor::on_openSettingsCommon()
+void WeatherMonitor::onOpenSettingsCommon()
 {
-    SettingsCommon dlg;
+    SettingsCommon dlg(this);
     dlg.exec();
 }
 
-void WeatherMonitor::on_openSettingsCities()
+void WeatherMonitor::onOpenSettingsCities()
 {
-    SettingsCities dlg;
+    SettingsCities dlg(this);
     dlg.exec();
 }

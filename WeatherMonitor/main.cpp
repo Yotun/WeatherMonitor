@@ -13,6 +13,6 @@ int main(int argc, char *argv[])
 
     int ret = a.exec();
 
-    a.clean();
+    a.done();
     return ret;
 }

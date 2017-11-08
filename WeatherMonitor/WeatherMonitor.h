@@ -16,8 +16,8 @@ private:
     Ui::WeatherMonitorClass ui;
 
 private slots:
-    void on_openSettingsCommon();
-    void on_openSettingsCities();
+    void onOpenSettingsCommon();
+    void onOpenSettingsCities();
 };
 
 #endif // WEATHERMONITOR_H

@@ -1,3 +1,4 @@
+#include <QtSql>
 #include "WeatherMonitorApp.h"
 
 WeatherMonitorApp::WeatherMonitorApp(int &argc, char *argv[])
@@ -15,7 +16,7 @@ int WeatherMonitorApp::init()
 {
     int ret = 0;
 
-    db = QSqlDatabase::addDatabase("QSQLITE");
+    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName("WeatherMonitor.sqlite");
 
     bool err = db.open();
@@ -32,13 +33,30 @@ int WeatherMonitorApp::init()
     if (err == false)
     {
         ret = createDbTables();
+        if (ret != 0)
+        {
+            qDebug() << "Error creating tables";
+            return ret;
+        }
     }
+
+    modelCities = new QSqlTableModel(this, db);
+    modelCities->setTable("cities");
+    modelCities->select();
+    modelCities->setHeaderData(1, Qt::Horizontal, "Название");
+    modelCities->setHeaderData(2, Qt::Horizontal, "Температура");
+
+    controllerCities = new ControllerCities(this, modelCities);
 
     return ret;
 }
 
-int WeatherMonitorApp::clean()
+int WeatherMonitorApp::done()
 {
+    delete controllerCities;
+    delete modelCities;
+
+    QSqlDatabase db = QSqlDatabase::database();
     db.close();
 
     return 0;
@@ -47,29 +65,30 @@ int WeatherMonitorApp::clean()
 int WeatherMonitorApp::createDbTables()
 {
     QSqlQuery query;
-    QString queryString = "CREATE TABLE settings (id INT PRIMARY KEY,"
+    QString queryString = "CREATE TABLE settings (id INTEGER PRIMARY KEY,"
         " setting_name VARCHAR(64), setting_value VARCHAR(256));";
     bool err = query.exec(queryString);
     if (err == false)
-    {
-        qDebug() << "Error creating tables";
         return -2;
-    }
-    queryString = "CREATE TABLE cities (id INT PRIMARY KEY,"
-        " name VARCHAR(64), temp INTEGER, data VARCHAR(1024));";
+    queryString = "CREATE TABLE cities (id INTEGER PRIMARY KEY,"
+        " name VARCHAR(64), temperature INTEGER, data VARCHAR(1024));";
     err = query.exec(queryString);
     if (err == false)
-    {
-        qDebug() << "Error creating tables";
         return -2;
-    }
     queryString = "INSERT INTO settings (setting_name, setting_value) VALUES ('version', '1');";
     err = query.exec(queryString);
     if (err == false)
-    {
-        qDebug() << "Error creating tables";
         return -2;
-    }
 
     return 0;
+}
+
+QSqlTableModel * WeatherMonitorApp::getModelCities()
+{
+    return modelCities;
+}
+
+ControllerCities * WeatherMonitorApp::getControllerCities()
+{
+    return controllerCities;
 }

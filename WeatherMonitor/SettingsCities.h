@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "ui_SettingsCities.h"
+#include "ControllerCities.h"
 
 class SettingsCities : public QDialog
 {
@@ -12,8 +13,15 @@ public:
     SettingsCities(QWidget *parent = 0);
     ~SettingsCities();
 
+private slots:
+    void onBtnAddClick();
+    void onBtnDelClick();
+    void onBtnEditClick();
+
 private:
     Ui::SettingsCities ui;
+
+    ControllerCities *ctrl;
 };
 
 #endif // SETTINGSCITIES_H

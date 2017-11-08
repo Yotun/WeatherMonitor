@@ -80,7 +80,7 @@
    <sender>menuSettingCommon</sender>
    <signal>triggered()</signal>
    <receiver>WeatherMonitorClass</receiver>
-   <slot>on_openSettingsCommon()</slot>
+   <slot>onOpenSettingsCommon()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>-1</x>
@@ -96,7 +96,7 @@
    <sender>menuSettingsCities</sender>
    <signal>triggered()</signal>
    <receiver>WeatherMonitorClass</receiver>
-   <slot>on_openSettingsCities()</slot>
+   <slot>onOpenSettingsCities()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>-1</x>
@@ -110,7 +110,7 @@
   </connection>
  </connections>
  <slots>
-  <slot>on_openSettingsCommon()</slot>
-  <slot>on_openSettingsCities()</slot>
+  <slot>onOpenSettingsCommon()</slot>
+  <slot>onOpenSettingsCities()</slot>
  </slots>
 </ui>
