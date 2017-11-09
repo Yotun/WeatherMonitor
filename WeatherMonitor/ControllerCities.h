@@ -3,7 +3,6 @@
 
 #include <QObject>
 #include <QSqlTableModel>
-#include <QTableView>
 
 class ControllerCities : public QObject
 {
@@ -19,7 +18,6 @@ public:
 
 private:
     QSqlTableModel *model;
-    QTableView     *view;
     
 };
 

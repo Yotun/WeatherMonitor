@@ -7,7 +7,7 @@ SettingsCities::SettingsCities(QWidget *parent)
 {
     ui.setupUi(this);
 
-    QSqlTableModel *model = qobject_cast<WeatherMonitorApp *>(qApp)->getModelCities();
+    model = qobject_cast<WeatherMonitorApp *>(qApp)->getModelCities();
 
     ui.tableView->setModel(model);
     ui.tableView->hideColumn(0);
@@ -30,7 +30,6 @@ void SettingsCities::onBtnAddClick()
 void SettingsCities::onBtnEditClick()
 {
     QModelIndexList sel = ui.tableView->selectionModel()->selectedIndexes();
-
     QModelIndex index;
     
     index = sel.at(1);

@@ -6,20 +6,102 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>400</height>
+    <width>418</width>
+    <height>253</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Монитор погоды</string>
   </property>
-  <widget class="QWidget" name="centralWidget"/>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QLabel" name="labelName">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>20</y>
+      <width>341</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>30</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelTemp">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>80</y>
+      <width>251</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>50</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnPrev">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>170</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Назад</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnNext">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>170</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Вперёд</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnExit">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>200</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Выход</string>
+    </property>
+   </widget>
+  </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>600</width>
+     <width>418</width>
      <height>21</height>
     </rect>
    </property>
@@ -108,9 +190,59 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>btnExit</sender>
+   <signal>clicked()</signal>
+   <receiver>WeatherMonitorClass</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>207</x>
+     <y>232</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>208</x>
+     <y>126</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnPrev</sender>
+   <signal>clicked()</signal>
+   <receiver>WeatherMonitorClass</receiver>
+   <slot>onBtnPrevClick()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>157</x>
+     <y>202</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>208</x>
+     <y>126</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnNext</sender>
+   <signal>clicked()</signal>
+   <receiver>WeatherMonitorClass</receiver>
+   <slot>onBtnNextClick()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>257</x>
+     <y>202</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>208</x>
+     <y>126</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>onOpenSettingsCommon()</slot>
   <slot>onOpenSettingsCities()</slot>
+  <slot>onBtnPrevClick()</slot>
+  <slot>onBtnNextClick()</slot>
  </slots>
 </ui>

@@ -75,7 +75,7 @@ int WeatherMonitorApp::createDbTables()
     err = query.exec(queryString);
     if (err == false)
         return -2;
-    queryString = "INSERT INTO settings (setting_name, setting_value) VALUES ('version', '1');";
+    queryString = "INSERT INTO settings (setting_name, setting_value) VALUES ('version', '1'), ('change_city', '5');";
     err = query.exec(queryString);
     if (err == false)
         return -2;

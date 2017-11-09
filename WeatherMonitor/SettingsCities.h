@@ -21,6 +21,7 @@ private slots:
 private:
     Ui::SettingsCities ui;
 
+    QSqlTableModel *model;
     ControllerCities *ctrl;
 };
 

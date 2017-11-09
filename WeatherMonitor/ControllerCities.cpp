@@ -7,7 +7,6 @@ ControllerCities::ControllerCities(QObject *parent, QSqlTableModel *model)
     : QObject(parent)
 {
     this->model = model;
-    this->view  = view;
 }
 
 ControllerCities::~ControllerCities()

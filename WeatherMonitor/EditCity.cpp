@@ -53,10 +53,10 @@ void EditCity::onBtnOk()
         return;
     }
 
-    if (edit == false)
-        ctrl->addCity(cityName, cityData);
-    else
+    if (edit == true)
         ctrl->updateCity(cityName, cityData, index);
+    else
+        ctrl->addCity(cityName, cityData);
 
     close();
 }

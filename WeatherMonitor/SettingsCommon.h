@@ -14,6 +14,9 @@ public:
 
 private:
     Ui::SettingsCommon ui;
+
+private slots:
+    void onBtnOk();
 };
 
 #endif // SETTINGSCOMMON_H
