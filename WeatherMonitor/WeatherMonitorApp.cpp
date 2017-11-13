@@ -123,7 +123,8 @@ void WeatherMonitorApp::onApplySettings()
     query.next();
     int updatePeriod = query.value(1).toInt();
 
-    timer->start(updatePeriod * 60 * 1000);
+    //timer->start(updatePeriod * 60 * 1000);
+    timer->start(updatePeriod * 1000);
 
     return;
 }

@@ -1,3 +1,4 @@
+#include <QMessageBox>
 #include "SettingsCities.h"
 #include "WeatherMonitorApp.h"
 #include "EditCity.h"
@@ -32,6 +33,14 @@ void SettingsCities::onBtnEditClick()
 {
     QModelIndexList sel = ui.tableView->selectionModel()->selectedIndexes();
     QModelIndex index;
+
+    if (sel.size() == 0)
+    {
+        QMessageBox msg;
+        msg.setText("Выберите город");
+        msg.exec();
+        return;
+    }
     
     index = sel.at(1);
     QString name = index.data().toString();
@@ -49,6 +58,15 @@ void SettingsCities::onBtnEditClick()
 void SettingsCities::onBtnDelClick()
 {
     QModelIndexList sel = ui.tableView->selectionModel()->selectedRows();
+
+    if (sel.size() == 0)
+    {
+        QMessageBox msg;
+        msg.setText("Выберите город");
+        msg.exec();
+        return;
+    }
+
     QModelIndex index = sel.at(0);
 
     ctrl->deleteCity(index.row());
