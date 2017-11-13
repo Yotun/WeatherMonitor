@@ -5,6 +5,7 @@
 #include <QtSql>
 
 #include "ControllerCities.h"
+#include "Updater.h"
 
 class WeatherMonitorApp : public QApplication
 {
@@ -18,7 +19,11 @@ private:
 
     QSqlTableModel   *modelCities;
     ControllerCities *controllerCities;
+    Updater          *updater;
 
+    QThread workerThread;
+
+    QTimer *timer;
 
 private:
     int createDbTables();
@@ -29,6 +34,11 @@ public:
 
     QSqlTableModel   *getModelCities();
     ControllerCities *getControllerCities();
+
+public slots:
+    void updatePending();
+    void onApplySettings();
+
 };
 
 #endif // WEATHERMONITORAPP_H

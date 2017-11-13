@@ -1,0 +1,20 @@
+#ifndef FILEDATASOURCE_H
+#define FILEDATASOURCE_H
+
+#include "DataSource.h"
+
+class FileDataSource : public DataSource
+{
+    Q_OBJECT
+
+public:
+    FileDataSource(QObject *parent);
+    ~FileDataSource();
+
+    int getTemperature(QString id);
+
+private:
+    
+};
+
+#endif // FILEDATASOURCE_H

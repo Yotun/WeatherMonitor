@@ -8,21 +8,28 @@ EditCity::EditCity(QWidget *parent)
 {
     ui.setupUi(this);
 
+    ui.cmbDataSource->insertItem(0, "OpenWeatherMap");
+    ui.cmbDataSource->insertItem(1, "File");
+
     edit = false;
 
     ctrl = qobject_cast<WeatherMonitorApp *>(qApp)->getControllerCities();
 }
 
-EditCity::EditCity(QWidget *parent, QString name, QString data, int index)
+EditCity::EditCity(QWidget *parent, QString name, QString data, int dataSource, int index)
     : QDialog(parent)
 {
     ui.setupUi(this);
+
+    ui.cmbDataSource->insertItem(0, "OpenWeatherMap");
+    ui.cmbDataSource->insertItem(1, "File");
 
     edit = true;
     this->index = index;
 
     ui.edtName->setText(name);
     ui.edtData->setText(data);
+    ui.cmbDataSource->setCurrentIndex(dataSource);
 
     ctrl = qobject_cast<WeatherMonitorApp *>(qApp)->getControllerCities();
 }
@@ -36,6 +43,7 @@ void EditCity::onBtnOk()
 {
     QString cityName = ui.edtName->text();
     QString cityData = ui.edtData->text();
+    int cityDataSource = ui.cmbDataSource->currentIndex();
 
     if (cityName.length() == 0)
     {
@@ -54,9 +62,9 @@ void EditCity::onBtnOk()
     }
 
     if (edit == true)
-        ctrl->updateCity(cityName, cityData, index);
+        ctrl->updateCity(cityName, cityData, cityDataSource, index);
     else
-        ctrl->addCity(cityName, cityData);
+        ctrl->addCity(cityName, cityData, cityDataSource);
 
     close();
 }

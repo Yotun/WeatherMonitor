@@ -12,6 +12,7 @@ SettingsCities::SettingsCities(QWidget *parent)
     ui.tableView->setModel(model);
     ui.tableView->hideColumn(0);
     ui.tableView->hideColumn(3);
+    ui.tableView->hideColumn(4);
 
     ctrl = qobject_cast<WeatherMonitorApp *>(qApp)->getControllerCities();
 }
@@ -38,7 +39,10 @@ void SettingsCities::onBtnEditClick()
     index = sel.at(3);
     QString data = index.data().toString();
 
-    EditCity dlg(this, name, data, index.row());
+    index = sel.at(4);
+    int dataSource = index.data().toInt();
+
+    EditCity dlg(this, name, data, dataSource, index.row());
     dlg.exec();
 }
 

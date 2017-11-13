@@ -48,11 +48,28 @@ int WeatherMonitorApp::init()
 
     controllerCities = new ControllerCities(this, modelCities);
 
+    Updater *updater = new Updater;
+    updater->moveToThread(&workerThread);
+    connect(&workerThread, SIGNAL(finished()), updater, SLOT(deleteLater()));
+    connect(updater, SIGNAL(updateDone()), this, SLOT(updatePending()));
+    workerThread.start();
+
+    timer = new QTimer(this);
+    connect(timer, SIGNAL(timeout()), updater, SLOT(doWork()));
+    onApplySettings();
+
     return ret;
 }
 
 int WeatherMonitorApp::done()
 {
+    delete timer;
+
+    workerThread.quit();
+    workerThread.wait();
+
+    delete updater;
+
     delete controllerCities;
     delete modelCities;
 
@@ -71,11 +88,12 @@ int WeatherMonitorApp::createDbTables()
     if (err == false)
         return -2;
     queryString = "CREATE TABLE cities (id INTEGER PRIMARY KEY,"
-        " name VARCHAR(64), temperature INTEGER, data VARCHAR(1024));";
+        " name VARCHAR(64), temperature INTEGER, data VARCHAR(1024), datasource INTEGER);";
     err = query.exec(queryString);
     if (err == false)
         return -2;
-    queryString = "INSERT INTO settings (setting_name, setting_value) VALUES ('version', '1'), ('change_city', '5');";
+    queryString = "INSERT INTO settings (setting_name, setting_value) "
+        "VALUES ('version', '1'), ('change_city', '5'), ('update_period', '10');";
     err = query.exec(queryString);
     if (err == false)
         return -2;
@@ -91,4 +109,21 @@ QSqlTableModel * WeatherMonitorApp::getModelCities()
 ControllerCities * WeatherMonitorApp::getControllerCities()
 {
     return controllerCities;
+}
+
+void WeatherMonitorApp::updatePending()
+{
+    modelCities->select();
+}
+
+void WeatherMonitorApp::onApplySettings()
+{
+    // TODO: переделать на модель
+    QSqlQuery query("SELECT setting_name, setting_value FROM settings WHERE setting_name LIKE 'update_period';");
+    query.next();
+    int updatePeriod = query.value(1).toInt();
+
+    timer->start(updatePeriod * 60 * 1000);
+
+    return;
 }

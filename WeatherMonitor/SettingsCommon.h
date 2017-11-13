@@ -17,6 +17,9 @@ private:
 
 private slots:
     void onBtnOk();
+
+signals:
+    void changedSettings();
 };
 
 #endif // SETTINGSCOMMON_H

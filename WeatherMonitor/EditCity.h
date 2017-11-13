@@ -11,7 +11,7 @@ class EditCity : public QDialog
 
 public:
     EditCity(QWidget *parent);
-    EditCity(QWidget *parent, QString name, QString data, int index);
+    EditCity(QWidget *parent, QString name, QString data, int dataSource, int index);
     ~EditCity();
 
 private:
