@@ -11,10 +11,8 @@ public:
     OwmDataSource(QObject *parent);
     ~OwmDataSource();
 
-    int getTemperature(QString id);
+    int getTemperature(QString name, QString data);
 
-private:
-    
 };
 
 #endif // OWMDATASOURCE_H

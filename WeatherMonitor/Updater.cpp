@@ -26,7 +26,8 @@ void Updater::doWork()
     for (int i = 0; i < num; i++)
     {
         DataSource *ds = dsFactory.getDataSource(modelCities->record(i).value("datasource").toInt());
-        int temperature = ds->getTemperature(modelCities->record(i).value("data").toString());
+        int temperature = ds->getTemperature(modelCities->record(i).value("name").toString(),
+            modelCities->record(i).value("data").toString());
         controllerCities->setTemperature(temperature, i);
         delete ds;
     }

@@ -11,7 +11,7 @@ public:
     DataSource();
     ~DataSource();
 
-    virtual int getTemperature(QString id) = 0;
+    virtual int getTemperature(QString name, QString data) = 0;
 
 private:
     

@@ -11,7 +11,7 @@ public:
     FileDataSource(QObject *parent);
     ~FileDataSource();
 
-    int getTemperature(QString id);
+    int getTemperature(QString name, QString data);
 
 private:
     

@@ -16,12 +16,12 @@ OwmDataSource::~OwmDataSource()
 
 }
 
-int OwmDataSource::getTemperature(QString id)
+int OwmDataSource::getTemperature(QString name, QString data)
 {
     // Строка запроса
     QString requestString = "http://api.openweathermap.org/data/2.5/weather?appid=e1b720106d8703cd61f456cdc032b489&units=metric&id=";
 
-    requestString += id;
+    requestString += data;
 
     // Запрос
     QNetworkAccessManager *manager = new QNetworkAccessManager(this);
